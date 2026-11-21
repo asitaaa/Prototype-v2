@@ -23,12 +23,13 @@
 </svg>
 
 <!-- ============ Header ============ -->
-<header class="site-header-solid boxed-l pad-tb-16 flex-row flex-align-center flex-justify-between gap-24 body-on-light">
+<header class="site-header-solid site-bar boxed-l pad-tb-16 flex-row flex-align-center flex-justify-between gap-24" data-site-bar data-theme="light" data-at-top="false">
   <a class="logo-link" href="index.html" aria-label="Larkline Estates, home">
-    <img class="logo-img" src="assets/logo.svg" alt="Larkline" width="878" height="169">
+    <img class="logo-img logo-for-dark" src="assets/logo-light.svg" alt="Larkline" width="878" height="169">
+    <img class="logo-img logo-for-light" src="assets/logo.svg" alt="" width="878" height="169" aria-hidden="true">
   </a>
   <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
-  <label class="nav-toggle-label heading-on-light" for="nav-toggle" aria-hidden="true"><span class="nav-bars"></span></label>
+  <label class="nav-toggle-label" for="nav-toggle" aria-hidden="true"><span class="nav-bars"></span></label>
   <nav class="nav-panel" aria-label="Main">
     <label class="nav-close" for="nav-toggle" aria-label="Close menu"><svg class="icon"><use href="#i-close"/></svg></label>
     <ul class="nav-list">
@@ -45,7 +46,7 @@
 <main>
 
   <!-- ============ Title + gallery ============ -->
-  <section class="bg-light-1 boxed-l pad-tb-40 flex-column gap-32" aria-labelledby="home-title">
+  <section data-header="light" class="bg-light-1 boxed-l pad-tb-40 flex-column gap-32" aria-labelledby="home-title">
     <ol class="breadcrumb flex-row flex-wrap gap-8 body-s detail-on-light">
       <li><a href="index.html#homes">Homes for sale</a></li>
       <li><a href="index.html#streets">Cypress</a></li>
@@ -71,7 +72,7 @@
   </section>
 
   <!-- ============ Details + agent ============ -->
-  <section class="bg-light-1 boxed-l pad-tb-48" aria-label="About this home">
+  <section data-header="light" class="bg-light-1 boxed-l pad-tb-48" aria-label="About this home">
     <div class="property-layout gap-40">
 
       <div class="flex-column gap-40">
@@ -139,7 +140,7 @@
   </section>
 
   <!-- ============ More from Daniel ============ -->
-  <section class="bg-light-2 boxed-l pad-tb-96 flex-column gap-40" aria-labelledby="more-title">
+  <section data-header="light" class="bg-light-2 boxed-l pad-tb-96 flex-column gap-40" aria-labelledby="more-title">
     <div class="flex-column gap-12">
       <p class="sub-title subtitle-on-light">More from Daniel</p>
       <h2 id="more-title" class="title-3 heading-on-light">Other homes in Cypress, La Palma and Buena Park</h2>
@@ -189,7 +190,7 @@
   </section>
 
   <!-- ============ Seller band ============ -->
-  <section class="bg-dark-1 boxed-m pad-tb-96 body-on-dark" aria-labelledby="seller-title">
+  <section data-header="dark" class="bg-dark-1 boxed-m pad-tb-96 body-on-dark" aria-labelledby="seller-title">
     <div class="flex-row flex-wrap flex-align-center flex-justify-between gap-32">
       <div class="flex-column gap-12 narrow">
         <p class="sub-title subtitle-on-dark">Own a home nearby?</p>
@@ -202,7 +203,7 @@
 </main>
 
 <!-- ============ Footer ============ -->
-<footer id="contact" class="bg-dark-1 boxed-l pad-tb-80 flex-column gap-40 body-on-dark">
+<footer id="contact" data-header="dark" class="bg-dark-1 boxed-l pad-tb-80 flex-column gap-40 body-on-dark">
   <div class="footer-grid gap-40">
     <div class="footer-brand flex-column gap-20">
       <img class="logo-img" src="assets/logo-light.svg" alt="Larkline" width="878" height="169" loading="lazy">
@@ -231,7 +232,7 @@
   </div>
   <div class="footer-bottom pad-tb-24 flex-row flex-wrap flex-justify-between gap-16 body-s detail-on-dark">
     <p>© 2026 Larkline Estates</p>
-    <p>Prototype v1. Larkline Estates is fictional; people, listings and contact details are made up.</p>
+    <p>Prototype v2. Larkline Estates is fictional; people, listings and contact details are made up.</p>
   </div>
 </footer>
 
@@ -241,10 +242,45 @@
   <a class="btn-outline" href="tel:+17145550101"><svg class="icon"><use href="#i-phone"/></svg>Call Daniel</a>
 </div>
 
+<!-- Back to top -->
+<button class="to-top" type="button" data-to-top data-visible="false" aria-label="Back to top">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <script>
 document.querySelectorAll('.nav-panel a').forEach(function (a) {
   a.addEventListener('click', function () { document.getElementById('nav-toggle').checked = false; });
 });
+
+/* Header theme: match the section under the menu strip. Back-to-top button. */
+(function () {
+  var bar = document.querySelector('[data-site-bar]');
+  var toTop = document.querySelector('[data-to-top]');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-header]'));
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (bar) {
+      var probe = bar.offsetHeight / 2;
+      var theme = 'light';
+      for (var i = 0; i < sections.length; i++) {
+        var r = sections[i].getBoundingClientRect();
+        if (r.top <= probe) { if (r.bottom > probe) theme = sections[i].getAttribute('data-header'); }
+      }
+      bar.setAttribute('data-theme', theme);
+      bar.setAttribute('data-at-top', window.scrollY < 8 ? 'true' : 'false');
+    }
+    if (toTop) toTop.setAttribute('data-visible', window.scrollY > window.innerHeight * 0.8 ? 'true' : 'false');
+  }
+  function request() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request, { passive: true });
+  if (toTop) toTop.addEventListener('click', function () {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+  });
+  update();
+})();
 </script>
 </body>
 </html>

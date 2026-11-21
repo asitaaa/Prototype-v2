@@ -23,12 +23,13 @@
 </svg>
 
 <!-- ============ Header ============ -->
-<header class="site-header boxed-l pad-tb-24 flex-row flex-align-center flex-justify-between gap-24 body-on-dark">
+<header class="site-header site-bar boxed-l pad-tb-16 flex-row flex-align-center flex-justify-between gap-24" data-site-bar data-theme="dark" data-at-top="true">
   <a class="logo-link" href="index.html" aria-label="Larkline Estates, home">
-    <img class="logo-img" src="assets/logo-light.svg" alt="Larkline" width="878" height="169">
+    <img class="logo-img logo-for-dark" src="assets/logo-light.svg" alt="Larkline" width="878" height="169">
+    <img class="logo-img logo-for-light" src="assets/logo.svg" alt="" width="878" height="169" aria-hidden="true">
   </a>
   <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
-  <label class="nav-toggle-label heading-on-dark" for="nav-toggle" aria-hidden="true"><span class="nav-bars"></span></label>
+  <label class="nav-toggle-label" for="nav-toggle" aria-hidden="true"><span class="nav-bars"></span></label>
   <nav class="nav-panel" aria-label="Main">
     <label class="nav-close" for="nav-toggle" aria-label="Close menu"><svg class="icon"><use href="#i-close"/></svg></label>
     <ul class="nav-list">
@@ -45,7 +46,7 @@
 <main>
 
   <!-- ============ Hero ============ -->
-  <section class="hero boxed-l pad-tb-128 body-on-dark" aria-labelledby="hero-title">
+  <section data-header="dark" class="hero boxed-l pad-tb-128 body-on-dark" aria-labelledby="hero-title">
     <div class="hero-media">
       <img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=2000&q=75" alt="A quiet, curving residential street lined with trees in the late-afternoon sun" fetchpriority="high">
     </div>
@@ -76,7 +77,7 @@
   </section>
 
   <!-- ============ Facts ============ -->
-  <section class="bg-light-1 boxed-l pad-tb-48" aria-label="Larkline in numbers">
+  <section data-header="light" class="bg-light-1 boxed-l pad-tb-48" aria-label="Larkline in numbers">
     <ul class="facts-grid gap-32">
       <li class="flex-column gap-4">
         <span class="fact-number title-3">9 years</span>
@@ -98,7 +99,7 @@
   </section>
 
   <!-- ============ Selling + valuation ============ -->
-  <section id="selling" class="bg-dark-1 boxed-l pad-tb-128 body-on-dark" aria-labelledby="selling-title">
+  <section id="selling" data-header="dark" class="bg-dark-1 boxed-l pad-tb-128 body-on-dark" aria-labelledby="selling-title">
     <div class="split-grid gap-40">
       <div class="flex-column gap-40">
         <div class="flex-column gap-20">
@@ -235,7 +236,7 @@
   </section>
 
   <!-- ============ Homes for sale ============ -->
-  <section id="homes" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="homes-title">
+  <section id="homes" data-header="light" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="homes-title">
     <div class="flex-row flex-wrap flex-align-end flex-justify-between gap-24">
       <div class="flex-column gap-16">
         <p class="sub-title subtitle-on-light">Homes for sale</p>
@@ -357,7 +358,7 @@
   </section>
 
   <!-- ============ About + team ============ -->
-  <section id="team" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="team-title">
+  <section id="team" data-header="light" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="team-title">
     <div class="about-grid gap-40">
       <figure class="media-frame ratio-3-2 rounded-l reveal">
         <img class="focus-bottom" src="assets/office.jpg" alt="Larkline agents at work around a shared table in the office" loading="lazy">
@@ -425,7 +426,7 @@
   </section>
 
   <!-- ============ Journal ============ -->
-  <section id="journal" class="bg-light-1 boxed-m pad-tb-128 flex-column gap-40" aria-labelledby="journal-title">
+  <section id="journal" data-header="light" class="bg-light-1 boxed-m pad-tb-128 flex-column gap-40" aria-labelledby="journal-title">
     <div class="flex-column gap-16">
       <p class="sub-title subtitle-on-light">Journal</p>
       <h2 id="journal-title" class="title-2 heading-on-light">Notes from the streets we work</h2>
@@ -459,7 +460,7 @@
 
   <!-- ============ Our streets: sticky overlap stack (runs into the footer) ============ -->
   <div class="stack" data-stack>
-    <section class="stack-panel bg-dark-1" id="streets" aria-label="Our streets">
+    <section data-header="dark" class="stack-panel bg-dark-1" id="streets" aria-label="Our streets">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1722410141941-5b483806917e?auto=format&fit=crop&w=2000&q=72" alt="A street lined with tall palm trees and parked cars" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -471,7 +472,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section class="stack-panel bg-dark-1" aria-label="Cypress, La Palma and Buena Park">
+    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Cypress, La Palma and Buena Park">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1692133216537-b4584e14fb7c?auto=format&fit=crop&w=2000&q=72" alt="A single-story home with a palm tree on a sunny street" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -492,7 +493,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section class="stack-panel bg-dark-1" aria-label="Los Alamitos, Rossmoor and Seal Beach">
+    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Los Alamitos, Rossmoor and Seal Beach">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1574715076013-3e106b9538b0?auto=format&fit=crop&w=2000&q=72" alt="A long wooden pier running out over the ocean" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -513,7 +514,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section class="stack-panel bg-dark-1" aria-label="Garden Grove, Stanton and West Anaheim">
+    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Garden Grove, Stanton and West Anaheim">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1655269478288-e8863c56787f?auto=format&fit=crop&w=2000&q=72" alt="A street in Anaheim with cars and people" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -534,7 +535,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section class="stack-panel bg-dark-1" aria-label="Huntington Beach, Fountain Valley and Westminster">
+    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Huntington Beach, Fountain Valley and Westminster">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1510301727687-449bada59d5d?auto=format&fit=crop&w=2000&q=72" alt="Waves rolling in beside the Huntington Beach pier" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -555,7 +556,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section class="stack-panel bg-dark-1" aria-label="Thinking of selling?">
+    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Thinking of selling?">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=2000&q=72" alt="A quiet, curving residential street in the late-afternoon sun" loading="lazy"></div>
         <div class="stack-shade-top"></div>
@@ -569,7 +570,7 @@
     </section>
 
   <!-- ============ Footer: the last layer of the stack ============ -->
-  <footer id="contact" class="stack-layer bg-dark-1 boxed-l pad-tb-80 flex-column gap-40 body-on-dark">
+  <footer id="contact" data-header="dark" class="stack-layer bg-dark-1 boxed-l pad-tb-80 flex-column gap-40 body-on-dark">
     <div class="footer-grid gap-40">
       <div class="footer-brand flex-column gap-20">
         <img class="logo-img" src="assets/logo-light.svg" alt="Larkline" width="878" height="169" loading="lazy">
@@ -598,10 +599,15 @@
     </div>
     <div class="footer-bottom pad-tb-24 flex-row flex-wrap flex-justify-between gap-16 body-s detail-on-dark">
       <p>© 2026 Larkline Estates</p>
-      <p>Prototype v1. Larkline Estates is fictional; people, listings and contact details are made up.</p>
+      <p>Prototype v2. Larkline Estates is fictional; people, listings and contact details are made up.</p>
     </div>
   </footer>
   </div>
+
+<!-- Back to top -->
+<button class="to-top" type="button" data-to-top data-visible="false" aria-label="Back to top">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script>
 /* Valuation form: three steps, inline errors, no double submits. Prototype only: nothing is sent. */
@@ -685,6 +691,36 @@
 document.querySelectorAll('.nav-panel a').forEach(function (a) {
   a.addEventListener('click', function () { document.getElementById('nav-toggle').checked = false; });
 });
+
+/* Header theme: match the section under the menu strip. Back-to-top button. */
+(function () {
+  var bar = document.querySelector('[data-site-bar]');
+  var toTop = document.querySelector('[data-to-top]');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-header]'));
+  var ticking = false;
+  function update() {
+    ticking = false;
+    if (bar) {
+      var probe = bar.offsetHeight / 2;
+      var theme = 'light';
+      for (var i = 0; i < sections.length; i++) {
+        var r = sections[i].getBoundingClientRect();
+        if (r.top <= probe) { if (r.bottom > probe) theme = sections[i].getAttribute('data-header'); }
+      }
+      bar.setAttribute('data-theme', theme);
+      bar.setAttribute('data-at-top', window.scrollY < 8 ? 'true' : 'false');
+    }
+    if (toTop) toTop.setAttribute('data-visible', window.scrollY > window.innerHeight * 0.8 ? 'true' : 'false');
+  }
+  function request() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request, { passive: true });
+  if (toTop) toTop.addEventListener('click', function () {
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+  });
+  update();
+})();
 </script>
 </body>
 </html>

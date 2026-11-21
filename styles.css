@@ -372,23 +372,54 @@ a:hover .icon-arrow, button:hover .icon-arrow { transform: translateX(var(--size
 
 /* ---------- Header ---------- */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: var(--size-0);
   left: var(--size-0);
   right: var(--size-0);
-  z-index: 20;
+  z-index: 50;
 }
 .site-header-solid {
   position: sticky;
   top: var(--size-0);
-  z-index: 20;
-  background-color: var(--tint-light-2);
+  z-index: 50;
+}
+/* Menu strip: its background follows the section underneath (set by JS in data-theme).
+   The background sits on ::before so the mobile menu (position: fixed) is not trapped by backdrop-filter. */
+.site-bar {
+  color: var(--primary-light-1);
+  transition: color var(--speed-medium) var(--ease);
+}
+.site-bar::before {
+  content: "";
+  position: absolute;
+  inset: var(--size-0);
+  z-index: -1;
+  background-color: var(--overlay-dark-strong);
   backdrop-filter: blur(var(--size-12));
+  -webkit-backdrop-filter: blur(var(--size-12));
   border-bottom-width: var(--border-width);
   border-bottom-style: solid;
+  border-bottom-color: var(--tint-light-1);
+  opacity: 1;
+  transition: background-color var(--speed-medium) var(--ease), border-color var(--speed-medium) var(--ease), opacity var(--speed-medium) var(--ease);
+}
+.site-bar[data-at-top="true"]::before { opacity: 0; }
+.site-bar[data-theme="light"] { color: var(--primary-dark-1); }
+.site-bar[data-theme="light"]::before {
+  background-color: var(--tint-light-2);
   border-bottom-color: var(--primary-light-3);
 }
-.logo-link { display: block; }
+.logo-for-light {
+  position: absolute;
+  top: var(--size-0);
+  left: var(--size-0);
+  opacity: 0;
+}
+.logo-for-dark, .logo-for-light { transition: opacity var(--speed-medium) var(--ease); }
+.site-bar[data-theme="light"] .logo-for-dark { opacity: 0; }
+.site-bar[data-theme="light"] .logo-for-light { opacity: 1; }
+[id] { scroll-margin-top: var(--header-height); }
+.logo-link { position: relative; display: block; }
 .logo-img { width: var(--logo-width); height: auto; }
 
 .nav-panel { display: flex; flex-direction: row; align-items: center; gap: var(--size-32); }
@@ -973,6 +1004,37 @@ a:hover .media-frame img, .media-frame:hover img { transform: scale(1.04); }
   .stack-inner, .stack-content, .stack-content-top { transform: none !important; }
 }
 
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed;
+  right: var(--size-24);
+  bottom: var(--size-24);
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  width: var(--size-48);
+  height: var(--size-48);
+  padding: var(--size-0);
+  color: var(--primary-light-1);
+  background-color: var(--overlay-dark-mid);
+  backdrop-filter: blur(var(--size-8));
+  -webkit-backdrop-filter: blur(var(--size-8));
+  border-width: var(--border-width);
+  border-style: solid;
+  border-color: var(--tint-light-1);
+  border-radius: 9999px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--size-12));
+  transition: opacity var(--speed-medium) var(--ease), transform var(--speed-medium) var(--ease), visibility var(--speed-medium), background-color var(--speed-fast) var(--ease);
+}
+.to-top[data-visible="true"] { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background-color: var(--primary-brand-1); border-color: var(--primary-brand-1); }
+.to-top:hover .icon { transform: translateY(calc(var(--size-4) * -1)); }
+.to-top .icon { transition: transform var(--speed-fast) var(--ease); }
+
 /* ---------- Motion ---------- */
 @keyframes rise {
   from { opacity: 0; transform: translateY(var(--size-24)); }
@@ -1084,5 +1146,6 @@ a:hover .media-frame img, .media-frame:hover img { transform: scale(1.04); }
   .key-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact-bar { display: grid; }
   .has-contact-bar { padding-bottom: var(--size-96); }
+  .has-contact-bar .to-top { bottom: var(--size-96); }
   .feature-list { grid-template-columns: minmax(0, 1fr); }
 }
