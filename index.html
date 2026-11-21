@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Larkline Estates · Selling homes in Cypress and north Orange County</title>
+  <meta name="description" content="A small Cypress real estate agency. One agent stays with you from the first coffee to the closing. Ask what your home is worth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Icon set -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.4 4.2-2 1.4a12 12 0 0 0 6.3 6.3l1.4-2 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8L4 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 10.5c.5 1.6 2 3.1 3.6 3.6l1.1-1 1.8.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ============ Header ============ -->
+<header class="site-header boxed-l pad-tb-24 flex-row flex-align-center flex-justify-between gap-24 body-on-dark">
+  <a class="logo-link" href="index.html" aria-label="Larkline Estates, home">
+    <img class="logo-img" src="assets/logo-light.svg" alt="Larkline" width="878" height="169">
+  </a>
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open menu">
+  <label class="nav-toggle-label heading-on-dark" for="nav-toggle" aria-hidden="true"><span class="nav-bars"></span></label>
+  <nav class="nav-panel" aria-label="Main">
+    <label class="nav-close" for="nav-toggle" aria-label="Close menu"><svg class="icon"><use href="#i-close"/></svg></label>
+    <ul class="nav-list">
+      <li><a class="nav-link" href="#selling">Selling</a></li>
+      <li><a class="nav-link" href="#homes">Homes for sale</a></li>
+      <li><a class="nav-link" href="#streets">Our streets</a></li>
+      <li><a class="nav-link" href="#team">Team</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn-solid" href="#valuation">Free valuation</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero boxed-l pad-tb-128 body-on-dark" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=2000&q=75" alt="A quiet, curving residential street lined with trees in the late-afternoon sun" fetchpriority="high">
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-grid gap-40">
+      <div class="hero-copy flex-column gap-24">
+        <p class="sub-title subtitle-on-dark">Cypress &amp; north Orange County</p>
+        <h1 id="hero-title" class="title-1 heading-on-dark">One agent, from the first coffee to the closing</h1>
+        <p class="body-l">We're a small Cypress agency that helps homeowners sell. We take on fewer clients, so every seller gets someone who knows their street and stays with them all the way.</p>
+        <div class="flex-row flex-wrap flex-align-center gap-24">
+          <a class="btn-solid" href="#valuation">Ask what your home is worth <svg class="icon icon-arrow"><use href="#i-arrow"/></svg></a>
+          <a class="text-link link-on-dark" href="#homes">Or see homes for sale</a>
+        </div>
+      </div>
+      <figure class="hero-quote card pad-24 flex-column gap-16 shadow-l">
+        <blockquote class="body-m body-on-light">
+          <p>"I left a big firm because clients were passed around. We take on fewer clients so we can really guide them."</p>
+        </blockquote>
+        <figcaption class="flex-row flex-align-center gap-12">
+          <img class="avatar-m" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&h=160&q=75" alt="Claire Morgan (placeholder photo)">
+          <span class="flex-column">
+            <span class="body-m heading-on-light"><strong>Claire Morgan</strong></span>
+            <span class="body-s detail-on-light">Founder &amp; managing director</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ Facts ============ -->
+  <section class="bg-light-1 boxed-l pad-tb-48" aria-label="Larkline in numbers">
+    <ul class="facts-grid gap-32">
+      <li class="flex-column gap-4">
+        <span class="fact-number title-3">9 years</span>
+        <span class="body-s detail-on-light">Selling homes from our office on Lincoln Avenue</span>
+      </li>
+      <li class="flex-column gap-4">
+        <span class="fact-number title-3">1 agent</span>
+        <span class="body-s detail-on-light">Stays with you from the first call to the keys</span>
+      </li>
+      <li class="flex-column gap-4">
+        <span class="fact-number title-3">4 agents</span>
+        <span class="body-s detail-on-light">Each covers the three cities they know best</span>
+      </li>
+      <li class="flex-column gap-4">
+        <span class="fact-number title-3">Sales only</span>
+        <span class="body-s detail-on-light">No rentals, so selling and buying get our full attention</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ Selling + valuation ============ -->
+  <section id="selling" class="bg-dark-1 boxed-l pad-tb-128 body-on-dark" aria-labelledby="selling-title">
+    <div class="split-grid gap-40">
+      <div class="flex-column gap-40">
+        <div class="flex-column gap-20">
+          <p class="sub-title subtitle-on-dark">Selling with Larkline</p>
+          <h2 id="selling-title" class="title-2 heading-on-dark">Find out what your home is worth from someone who knows your street</h2>
+        </div>
+        <ol class="steps flex-column gap-32">
+          <li class="step gap-16 reveal">
+            <span class="step-number" aria-hidden="true">1</span>
+            <div class="flex-column gap-8">
+              <h3 class="title-5 heading-on-dark">Tell us about your home</h3>
+              <p class="body-m">Three short steps, about two minutes. No obligation and no newsletter.</p>
+            </div>
+          </li>
+          <li class="step gap-16 reveal">
+            <span class="step-number" aria-hidden="true">2</span>
+            <div class="flex-column gap-8">
+              <h3 class="title-5 heading-on-dark">Meet the agent for your area</h3>
+              <p class="body-m">They walk through the home with you and price it on what's actually sold nearby.</p>
+            </div>
+          </li>
+          <li class="step gap-16 reveal">
+            <span class="step-number" aria-hidden="true">3</span>
+            <div class="flex-column gap-8">
+              <h3 class="title-5 heading-on-dark">Sell with one person beside you</h3>
+              <p class="body-m">The same agent handles photos, viewings, offers and closing. You always know who to call.</p>
+            </div>
+          </li>
+        </ol>
+        <!-- Proof placeholder: replace with a real seller quote -->
+        <figure class="placeholder-note pad-24 flex-column gap-12">
+          <p class="sub-title subtitle-on-dark">Client quote needed</p>
+          <blockquote class="body-m">
+            <p>A short quote from a recent Cypress seller goes here, in their own words, with first name and street.</p>
+          </blockquote>
+        </figure>
+      </div>
+
+      <!-- Valuation form: 3 steps -->
+      <form id="valuation" class="valuation-form card pad-32 flex-column gap-24 shadow-l" data-step="1" novalidate aria-labelledby="form-title">
+        <div class="form-progress-wrap flex-column gap-12">
+          <div class="flex-row flex-justify-between flex-align-center gap-12">
+            <h3 id="form-title" class="title-5 heading-on-light">Free home valuation</h3>
+            <span class="body-s detail-on-light" data-step-label>Step 1 of 3</span>
+          </div>
+          <div class="form-progress gap-8" aria-hidden="true">
+            <span class="progress-step"></span><span class="progress-step"></span><span class="progress-step"></span>
+          </div>
+        </div>
+
+        <fieldset class="form-step gap-20" data-for="1">
+          <legend class="body-m body-on-light pad-tb-8">Where is the home?</legend>
+          <div class="field-group gap-8">
+            <label class="field-label" for="f-street">Street address</label>
+            <input class="field" id="f-street" name="street" autocomplete="street-address" placeholder="e.g. 5432 Orange Ave" required>
+            <p class="field-error" id="e-street" hidden>Add the street address so we know which home it is.</p>
+          </div>
+          <div class="field-row gap-16">
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-city">City</label>
+              <select class="field" id="f-city" name="city" required>
+                <option value="">Choose a city</option>
+                <option>Cypress</option><option>La Palma</option><option>Buena Park</option>
+                <option>Los Alamitos</option><option>Rossmoor</option><option>Seal Beach</option>
+                <option>Garden Grove</option><option>Stanton</option><option>Anaheim</option>
+                <option>Huntington Beach</option><option>Fountain Valley</option><option>Westminster</option>
+              </select>
+              <p class="field-error" id="e-city" hidden>Choose the city.</p>
+            </div>
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-zip">ZIP code</label>
+              <input class="field" id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="90630">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step gap-20" data-for="2">
+          <legend class="body-m body-on-light pad-tb-8">About the home</legend>
+          <div class="field-group gap-8">
+            <span class="field-label" id="l-type">Type of home</span>
+            <div class="choice-group gap-8" role="radiogroup" aria-labelledby="l-type">
+              <label class="choice"><input type="radio" name="type" value="house" checked>House</label>
+              <label class="choice"><input type="radio" name="type" value="townhome">Townhome</label>
+              <label class="choice"><input type="radio" name="type" value="condo">Condo</label>
+            </div>
+          </div>
+          <div class="field-row gap-16">
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-beds">Bedrooms</label>
+              <select class="field" id="f-beds" name="beds"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5+</option></select>
+            </div>
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-when">When would you like to sell?</label>
+              <select class="field" id="f-when" name="when"><option>Just curious</option><option>Within 3 months</option><option>3 to 12 months</option><option>Later than that</option></select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step gap-20" data-for="3">
+          <legend class="body-m body-on-light pad-tb-8">Who should we call?</legend>
+          <div class="field-group gap-8">
+            <label class="field-label" for="f-name">Your name</label>
+            <input class="field" id="f-name" name="name" autocomplete="name" required>
+            <p class="field-error" id="e-name" hidden>Add your name so your agent knows who to ask for.</p>
+          </div>
+          <div class="field-row gap-16">
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-phone">Phone</label>
+              <input class="field" id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+              <p class="field-error" id="e-phone" hidden>Add a phone number.</p>
+            </div>
+            <div class="field-group gap-8">
+              <label class="field-label" for="f-email">Email</label>
+              <input class="field" id="f-email" name="email" type="email" autocomplete="email" required>
+              <p class="field-error" id="e-email" hidden>Check the email address.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-step gap-16" data-for="done" role="status">
+          <span class="done-mark"><svg class="icon"><use href="#i-check"/></svg></span>
+          <h3 class="title-4 heading-on-light">Thanks, we've got it</h3>
+          <p class="body-m body-on-light">Your request goes straight to the agent for your area, who will call you to set up a visit. Dana checks that every request gets an answer.</p>
+          <p class="body-s detail-on-light">Prefer to talk now? Call the office on <a class="text-link link-on-light" href="tel:+17145550100">714-555-0100</a>.</p>
+        </div>
+
+        <div class="form-nav flex-row flex-justify-between flex-align-center gap-12" data-form-nav>
+          <button class="btn-plain" type="button" data-back hidden>Back</button>
+          <span></span>
+          <button class="btn-solid" type="submit" data-next>Next <svg class="icon icon-arrow"><use href="#i-arrow"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ Homes for sale ============ -->
+  <section id="homes" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="homes-title">
+    <div class="flex-row flex-wrap flex-align-end flex-justify-between gap-24">
+      <div class="flex-column gap-16">
+        <p class="sub-title subtitle-on-light">Homes for sale</p>
+        <h2 id="homes-title" class="title-2 heading-on-light">On the market right now</h2>
+      </div>
+      <a class="btn-outline" href="#homes">See all 12 homes <svg class="icon icon-arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <ul class="homes-grid gap-24">
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1523809040961-500fcd60697a?auto=format&fit=crop&w=900&q=75" alt="Single-story ranch home with a two-car garage and a tall palm tree" loading="lazy">
+            <span class="media-badge badge-2">For sale</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$1,175,000</p>
+            <h3 class="title-6 heading-on-light">Orange Avenue Ranch</h3>
+            <p class="body-s detail-on-light">Cypress · Moody St &amp; Orange Ave</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>3 beds</li><li>2 baths</li><li>1,750 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1591818873794-ba8279c7da8a?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Daniel Reyes</span>
+          </div>
+        </a>
+      </li>
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1612312933146-06d98e301654?auto=format&fit=crop&w=900&q=75" alt="White and gray family home behind green trees" loading="lazy">
+            <span class="media-badge badge-2">For sale</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$1,895,000</p>
+            <h3 class="title-6 heading-on-light">Rossmoor Classic</h3>
+            <p class="body-s detail-on-light">Rossmoor · Montecito Rd &amp; Los Alamitos Blvd</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>3 beds</li><li>2 baths</li><li>1,850 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1758600587815-b654d1405e83?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Priya Nair</span>
+          </div>
+        </a>
+      </li>
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1577618163295-29d57a40e2b2?auto=format&fit=crop&w=900&q=75" alt="Two-story coastal home framed by palm trees" loading="lazy">
+            <span class="media-badge badge-2">For sale</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$3,650,000</p>
+            <h3 class="title-6 heading-on-light">Huntington Harbour Waterfront</h3>
+            <p class="body-s detail-on-light">Huntington Beach · Warner Ave &amp; Algonquin St</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>4 beds</li><li>4 baths</li><li>3,200 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Sofia Lindqvist</span>
+          </div>
+        </a>
+      </li>
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?auto=format&fit=crop&w=900&q=75" alt="White home with blue shutters behind a picket fence" loading="lazy">
+            <span class="media-badge badge-3">Under contract</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$875,000</p>
+            <h3 class="title-6 heading-on-light">Los Alamitos Townhome</h3>
+            <p class="body-s detail-on-light">Los Alamitos · Cerritos Ave &amp; Los Alamitos Blvd</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>2 beds</li><li>2 baths</li><li>1,400 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1758600587815-b654d1405e83?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Priya Nair</span>
+          </div>
+        </a>
+      </li>
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1687690450042-c35b67c3813b?auto=format&fit=crop&w=900&q=75" alt="Red-walled building with a palm tree in front" loading="lazy">
+            <span class="media-badge badge-2">For sale</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$649,000</p>
+            <h3 class="title-6 heading-on-light">Main Street Condo</h3>
+            <p class="body-s detail-on-light">Garden Grove · Main St &amp; Garden Grove Blvd</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>2 beds</li><li>2 baths</li><li>1,150 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1758598497635-48cbbb1f6555?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Marcus Bell</span>
+          </div>
+        </a>
+      </li>
+      <li class="reveal">
+        <a class="home-card" href="property.html">
+          <div class="media-frame ratio-4-3">
+            <img src="https://images.unsplash.com/photo-1560990469-8addd0eb06fc?auto=format&fit=crop&w=900&q=75" alt="White wooden house on a sunny day" loading="lazy">
+            <span class="media-badge badge-2">For sale</span>
+          </div>
+          <div class="home-card-body pad-24 flex-column gap-8">
+            <p class="title-5 use-heading-font heading-on-light">$899,000</p>
+            <h3 class="title-6 heading-on-light">Mile Square Townhome</h3>
+            <p class="body-s detail-on-light">Fountain Valley · Brookhurst St &amp; Talbert Ave</p>
+            <ul class="meta-list flex-row flex-wrap body-s body-on-light"><li>2 beds</li><li>2 baths</li><li>1,450 sq ft</li></ul>
+          </div>
+          <div class="home-card-foot pad-lr-24 pad-tb-16 flex-row flex-align-center gap-12">
+            <img class="avatar-s" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=75" alt="" loading="lazy">
+            <span class="body-s detail-on-light">Sofia Lindqvist</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ About + team ============ -->
+  <section id="team" class="bg-light-2 boxed-l pad-tb-128 flex-column gap-40" aria-labelledby="team-title">
+    <div class="about-grid gap-40">
+      <figure class="media-frame ratio-3-2 rounded-l reveal">
+        <img class="focus-bottom" src="assets/office.jpg" alt="Larkline agents at work around a shared table in the office" loading="lazy">
+      </figure>
+      <div class="flex-column gap-20">
+        <p class="sub-title subtitle-on-light">About Larkline</p>
+        <h2 id="team-title" class="title-2 heading-on-light">Small on purpose</h2>
+        <p class="body-l body-on-light">Claire Morgan started Larkline nine years ago, after years at a big firm where clients were handed from desk to desk.</p>
+        <p class="body-m body-on-light">Today it's Claire, four agents and Dana in our office on Lincoln Avenue. We take on fewer clients so we can really guide each one, and every client works with one agent from the first conversation to the closing.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <ul class="team-grid gap-24">
+      <li class="agent-card flex-column gap-16 reveal">
+        <div class="media-frame ratio-4-5 rounded-m agent-photo"><img src="https://images.unsplash.com/photo-1591818873794-ba8279c7da8a?auto=format&fit=crop&w=600&q=75" alt="Daniel Reyes (placeholder photo)" loading="lazy"></div>
+        <div class="flex-column gap-4">
+          <h3 class="title-5 heading-on-light">Daniel Reyes</h3>
+          <p class="body-s detail-on-light">Senior agent · Cypress, La Palma, Buena Park</p>
+        </div>
+        <ul class="contact-list flex-column gap-8">
+          <li><a class="contact-link" href="tel:+17145550101"><svg class="icon"><use href="#i-phone"/></svg>714-555-0101</a></li>
+          <li><a class="contact-link" href="https://wa.me/17145550111"><svg class="icon"><use href="#i-chat"/></svg>WhatsApp</a></li>
+          <li><a class="contact-link" href="mailto:daniel@larkline.example"><svg class="icon"><use href="#i-mail"/></svg>daniel@larkline.example</a></li>
+        </ul>
+      </li>
+      <li class="agent-card flex-column gap-16 reveal">
+        <div class="media-frame ratio-4-5 rounded-m agent-photo"><img src="https://images.unsplash.com/photo-1758600587815-b654d1405e83?auto=format&fit=crop&w=600&q=75" alt="Priya Nair (placeholder photo)" loading="lazy"></div>
+        <div class="flex-column gap-4">
+          <h3 class="title-5 heading-on-light">Priya Nair</h3>
+          <p class="body-s detail-on-light">Senior agent · Los Alamitos, Rossmoor, Seal Beach</p>
+        </div>
+        <ul class="contact-list flex-column gap-8">
+          <li><a class="contact-link" href="tel:+17145550102"><svg class="icon"><use href="#i-phone"/></svg>714-555-0102</a></li>
+          <li><a class="contact-link" href="https://wa.me/17145550112"><svg class="icon"><use href="#i-chat"/></svg>WhatsApp</a></li>
+          <li><a class="contact-link" href="mailto:priya@larkline.example"><svg class="icon"><use href="#i-mail"/></svg>priya@larkline.example</a></li>
+        </ul>
+      </li>
+      <li class="agent-card flex-column gap-16 reveal">
+        <div class="media-frame ratio-4-5 rounded-m agent-photo"><img src="https://images.unsplash.com/photo-1758598497635-48cbbb1f6555?auto=format&fit=crop&w=600&q=75" alt="Marcus Bell (placeholder photo)" loading="lazy"></div>
+        <div class="flex-column gap-4">
+          <h3 class="title-5 heading-on-light">Marcus Bell</h3>
+          <p class="body-s detail-on-light">Agent · Garden Grove, Stanton, West Anaheim</p>
+        </div>
+        <ul class="contact-list flex-column gap-8">
+          <li><a class="contact-link" href="tel:+17145550103"><svg class="icon"><use href="#i-phone"/></svg>714-555-0103</a></li>
+          <li><a class="contact-link" href="https://wa.me/17145550113"><svg class="icon"><use href="#i-chat"/></svg>WhatsApp</a></li>
+          <li><a class="contact-link" href="mailto:marcus@larkline.example"><svg class="icon"><use href="#i-mail"/></svg>marcus@larkline.example</a></li>
+        </ul>
+      </li>
+      <li class="agent-card flex-column gap-16 reveal">
+        <div class="media-frame ratio-4-5 rounded-m agent-photo"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=75" alt="Sofia Lindqvist (placeholder photo)" loading="lazy"></div>
+        <div class="flex-column gap-4">
+          <h3 class="title-5 heading-on-light">Sofia Lindqvist</h3>
+          <p class="body-s detail-on-light">Agent · Huntington Beach, Fountain Valley, Westminster</p>
+        </div>
+        <ul class="contact-list flex-column gap-8">
+          <li><a class="contact-link" href="tel:+17145550104"><svg class="icon"><use href="#i-phone"/></svg>714-555-0104</a></li>
+          <li><a class="contact-link" href="https://wa.me/17145550114"><svg class="icon"><use href="#i-chat"/></svg>WhatsApp</a></li>
+          <li><a class="contact-link" href="mailto:sofia@larkline.example"><svg class="icon"><use href="#i-mail"/></svg>sofia@larkline.example</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ Journal ============ -->
+  <section id="journal" class="bg-light-1 boxed-m pad-tb-128 flex-column gap-40" aria-labelledby="journal-title">
+    <div class="flex-column gap-16">
+      <p class="sub-title subtitle-on-light">Journal</p>
+      <h2 id="journal-title" class="title-2 heading-on-light">Notes from the streets we work</h2>
+    </div>
+    <ul class="article-list">
+      <li>
+        <a class="article-row pad-tb-24 gap-24" href="#journal">
+          <span class="article-label sub-title subtitle-on-light">Buying</span>
+          <span class="article-title title-5 use-heading-font heading-on-light">What to know before buying your first HOA townhome in Cypress</span>
+          <span class="article-arrow" aria-hidden="true"><svg class="icon icon-arrow"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="article-row pad-tb-24 gap-24" href="#journal">
+          <span class="article-label sub-title subtitle-on-light">Selling</span>
+          <span class="article-title title-5 use-heading-font heading-on-light">Five things that influence the value of your home</span>
+          <span class="article-arrow" aria-hidden="true"><svg class="icon icon-arrow"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="article-row pad-tb-24 gap-24" href="#journal">
+          <span class="article-label sub-title subtitle-on-light">Neighborhoods</span>
+          <span class="article-title title-5 use-heading-font heading-on-light">Cypress or Rossmoor: how to choose your neighborhood</span>
+          <span class="article-arrow" aria-hidden="true"><svg class="icon icon-arrow"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+  <!-- ============ Our streets: sticky overlap stack (runs into the footer) ============ -->
+  <div class="stack" data-stack>
+    <section class="stack-panel bg-dark-1" id="streets" aria-label="Our streets">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1722410141941-5b483806917e?auto=format&fit=crop&w=2000&q=72" alt="A street lined with tall palm trees and parked cars" loading="lazy"></div>
+        <div class="stack-shade"></div>
+        <div class="stack-content boxed-l pad-tb-96 flex-column gap-20 body-on-dark">
+          <p class="sub-title subtitle-on-dark">Our streets</p>
+          <h2 class="title-1 heading-on-dark stack-title">Every agent knows three cities by heart</h2>
+          <p class="body-l stack-text">We don't cover all of Southern California. Each agent sticks to the streets they know, so the price on your home comes from someone who's walked the block.</p>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+    <section class="stack-panel bg-dark-1" aria-label="Cypress, La Palma and Buena Park">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1692133216537-b4584e14fb7c?auto=format&fit=crop&w=2000&q=72" alt="A single-story home with a palm tree on a sunny street" loading="lazy"></div>
+        <div class="stack-shade"></div>
+        <div class="stack-content boxed-l pad-tb-96 flex-column gap-20 body-on-dark">
+          <div class="flex-row flex-wrap flex-align-center gap-24">
+            <div class="flex-row flex-align-center gap-12">
+              <img class="avatar-m stack-avatar" src="https://images.unsplash.com/photo-1591818873794-ba8279c7da8a?auto=format&fit=crop&w=160&h=160&q=75" alt="Daniel Reyes (placeholder photo)" loading="lazy">
+              <div class="flex-column">
+                <span class="body-m heading-on-dark"><strong>Daniel Reyes</strong></span>
+                <span class="body-s detail-on-dark">Senior agent</span>
+              </div>
+            </div>
+            <a class="contact-link-on-dark" href="tel:+17145550101"><svg class="icon"><use href="#i-phone"/></svg>714-555-0101</a>
+          </div>
+          <h3 class="title-2 heading-on-dark stack-title">Cypress, La Palma &amp; Buena Park</h3>
+          <p class="body-l stack-text">Quiet single-family streets from the '50s and '60s, close to Oak Knoll Park and Cypress College.</p>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+    <section class="stack-panel bg-dark-1" aria-label="Los Alamitos, Rossmoor and Seal Beach">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1574715076013-3e106b9538b0?auto=format&fit=crop&w=2000&q=72" alt="A long wooden pier running out over the ocean" loading="lazy"></div>
+        <div class="stack-shade"></div>
+        <div class="stack-content boxed-l pad-tb-96 flex-column gap-20 body-on-dark">
+          <div class="flex-row flex-wrap flex-align-center gap-24">
+            <div class="flex-row flex-align-center gap-12">
+              <img class="avatar-m stack-avatar" src="https://images.unsplash.com/photo-1758600587815-b654d1405e83?auto=format&fit=crop&w=160&h=160&q=75" alt="Priya Nair (placeholder photo)" loading="lazy">
+              <div class="flex-column">
+                <span class="body-m heading-on-dark"><strong>Priya Nair</strong></span>
+                <span class="body-s detail-on-dark">Senior agent</span>
+              </div>
+            </div>
+            <a class="contact-link-on-dark" href="tel:+17145550102"><svg class="icon"><use href="#i-phone"/></svg>714-555-0102</a>
+          </div>
+          <h3 class="title-2 heading-on-dark stack-title">Los Alamitos, Rossmoor &amp; Seal Beach</h3>
+          <p class="body-l stack-text">Tree-lined Rossmoor blocks, Los Alamitos Unified schools, and Old Town Seal Beach a short walk from the pier.</p>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+    <section class="stack-panel bg-dark-1" aria-label="Garden Grove, Stanton and West Anaheim">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1655269478288-e8863c56787f?auto=format&fit=crop&w=2000&q=72" alt="A street in Anaheim with cars and people" loading="lazy"></div>
+        <div class="stack-shade"></div>
+        <div class="stack-content boxed-l pad-tb-96 flex-column gap-20 body-on-dark">
+          <div class="flex-row flex-wrap flex-align-center gap-24">
+            <div class="flex-row flex-align-center gap-12">
+              <img class="avatar-m stack-avatar" src="https://images.unsplash.com/photo-1758598497635-48cbbb1f6555?auto=format&fit=crop&w=160&h=160&q=75" alt="Marcus Bell (placeholder photo)" loading="lazy">
+              <div class="flex-column">
+                <span class="body-m heading-on-dark"><strong>Marcus Bell</strong></span>
+                <span class="body-s detail-on-dark">Agent</span>
+              </div>
+            </div>
+            <a class="contact-link-on-dark" href="tel:+17145550103"><svg class="icon"><use href="#i-phone"/></svg>714-555-0103</a>
+          </div>
+          <h3 class="title-2 heading-on-dark stack-title">Garden Grove, Stanton &amp; West Anaheim</h3>
+          <p class="body-l stack-text">First homes, growing families and the historic Main Street in Garden Grove, with all of north county a short drive away.</p>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+    <section class="stack-panel bg-dark-1" aria-label="Huntington Beach, Fountain Valley and Westminster">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1510301727687-449bada59d5d?auto=format&fit=crop&w=2000&q=72" alt="Waves rolling in beside the Huntington Beach pier" loading="lazy"></div>
+        <div class="stack-shade"></div>
+        <div class="stack-content boxed-l pad-tb-96 flex-column gap-20 body-on-dark">
+          <div class="flex-row flex-wrap flex-align-center gap-24">
+            <div class="flex-row flex-align-center gap-12">
+              <img class="avatar-m stack-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=75" alt="Sofia Lindqvist (placeholder photo)" loading="lazy">
+              <div class="flex-column">
+                <span class="body-m heading-on-dark"><strong>Sofia Lindqvist</strong></span>
+                <span class="body-s detail-on-dark">Agent</span>
+              </div>
+            </div>
+            <a class="contact-link-on-dark" href="tel:+17145550104"><svg class="icon"><use href="#i-phone"/></svg>714-555-0104</a>
+          </div>
+          <h3 class="title-2 heading-on-dark stack-title">Huntington Beach, Fountain Valley &amp; Westminster</h3>
+          <p class="body-l stack-text">Huntington Harbour on the water, Mile Square Park in Fountain Valley and the food of Little Saigon in Westminster.</p>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+    <section class="stack-panel bg-dark-1" aria-label="Thinking of selling?">
+      <div class="stack-inner">
+        <div class="stack-media"><img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=2000&q=72" alt="A quiet, curving residential street in the late-afternoon sun" loading="lazy"></div>
+        <div class="stack-shade-top"></div>
+        <div class="stack-content-top boxed-l pad-tb-128 flex-column gap-20 body-on-dark flex-align-center text-center">
+          <p class="sub-title subtitle-on-dark">Thinking of selling?</p>
+          <h2 class="title-2 heading-on-dark stack-title narrow">Start with a number from someone who knows your street</h2>
+          <a class="btn-solid" href="#valuation">Ask what your home is worth <svg class="icon icon-arrow"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="stack-dim" aria-hidden="true"></div>
+    </section>
+
+  <!-- ============ Footer: the last layer of the stack ============ -->
+  <footer id="contact" class="stack-layer bg-dark-1 boxed-l pad-tb-80 flex-column gap-40 body-on-dark">
+    <div class="footer-grid gap-40">
+      <div class="footer-brand flex-column gap-20">
+        <img class="logo-img" src="assets/logo-light.svg" alt="Larkline" width="878" height="169" loading="lazy">
+        <p class="body-m narrow">A small real estate agency in Cypress, California. We help people buy and sell homes across north and west Orange County. Sales only.</p>
+      </div>
+      <div class="flex-column gap-16">
+        <h2 class="sub-title subtitle-on-dark">Visit</h2>
+        <p class="body-m">Lincoln Avenue<br>Cypress, CA</p>
+      </div>
+      <div class="flex-column gap-16">
+        <h2 class="sub-title subtitle-on-dark">Talk to us</h2>
+        <ul class="footer-list flex-column gap-8 body-m">
+          <li><a class="text-link link-on-dark" href="tel:+17145550100">714-555-0100</a></li>
+          <li><a class="text-link link-on-dark" href="mailto:hello@larkline.example">hello@larkline.example</a></li>
+        </ul>
+      </div>
+      <div class="flex-column gap-16">
+        <h2 class="sub-title subtitle-on-dark">Explore</h2>
+        <ul class="footer-list flex-column gap-8 body-m">
+          <li><a class="text-link link-on-dark" href="#selling">Selling</a></li>
+          <li><a class="text-link link-on-dark" href="#homes">Homes for sale</a></li>
+          <li><a class="text-link link-on-dark" href="#team">Team</a></li>
+          <li><a class="text-link link-on-dark" href="#journal">Journal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom pad-tb-24 flex-row flex-wrap flex-justify-between gap-16 body-s detail-on-dark">
+      <p>© 2026 Larkline Estates</p>
+      <p>Prototype v1. Larkline Estates is fictional; people, listings and contact details are made up.</p>
+    </div>
+  </footer>
+  </div>
+
+<script>
+/* Valuation form: three steps, inline errors, no double submits. Prototype only: nothing is sent. */
+(function () {
+  var form = document.getElementById('valuation');
+  if (!form) return;
+  var nextBtn = form.querySelector('[data-next]');
+  var backBtn = form.querySelector('[data-back]');
+  var label = form.querySelector('[data-step-label]');
+  var nav = form.querySelector('[data-form-nav]');
+  var required = { 1: ['street', 'city'], 2: [], 3: ['name', 'phone', 'email'] };
+
+  function setStep(n) {
+    form.dataset.step = n;
+    if (n === 'done') { nav.hidden = true; return; }
+    label.textContent = 'Step ' + n + ' of 3';
+    backBtn.hidden = n === 1;
+    nextBtn.firstChild.textContent = n === 3 ? 'Send my request ' : 'Next ';
+  }
+  function valid(n) {
+    var ok = true;
+    required[n].forEach(function (name) {
+      var field = form.elements[name];
+      var good = field.value.trim() !== '' && (field.type !== 'email' || /.+@.+\..+/.test(field.value));
+      field.setAttribute('aria-invalid', good ? 'false' : 'true');
+      var err = document.getElementById('e-' + name);
+      if (err) err.hidden = good;
+      if (!good && ok) { field.focus(); ok = false; }
+    });
+    return ok;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = Number(form.dataset.step);
+    if (!valid(n)) return;
+    if (n < 3) { setStep(n + 1); return; }
+    nextBtn.disabled = true;               /* prevent double submit */
+    nextBtn.firstChild.textContent = 'Sending ';
+    setTimeout(function () { setStep('done'); }, 700);
+  });
+  backBtn.addEventListener('click', function () { setStep(Number(form.dataset.step) - 1); });
+  form.addEventListener('input', function (e) {
+    if (e.target.getAttribute('aria-invalid') === 'true' && e.target.value.trim() !== '') {
+      e.target.setAttribute('aria-invalid', 'false');
+      var err = document.getElementById('e-' + e.target.name);
+      if (err) err.hidden = true;
+    }
+  });
+})();
+
+/* Sticky overlap stack: passive scroll + requestAnimationFrame, no library */
+(function () {
+  var stack = document.querySelector('[data-stack]');
+  if (!stack) return;
+  var layers = Array.prototype.slice.call(stack.children).filter(function (el) {
+    return el.classList.contains('stack-panel') || el.classList.contains('stack-layer');
+  });
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    for (var i = 0; i < layers.length - 1; i++) {
+      var panel = layers[i];
+      if (!panel.classList.contains('stack-panel')) continue;
+      var next = layers[i + 1];
+      var top = next.getBoundingClientRect().top;
+      var p = (vh - top) / vh;
+      p = p < 0 ? 0 : (p > 1 ? 1 : p);
+      panel.style.setProperty('--p', p.toFixed(3));
+    }
+  }
+  function request() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', request, { passive: true });
+  window.addEventListener('resize', request, { passive: true });
+  update();
+})();
+
+/* Close the mobile menu after choosing a link */
+document.querySelectorAll('.nav-panel a').forEach(function (a) {
+  a.addEventListener('click', function () { document.getElementById('nav-toggle').checked = false; });
+});
+</script>
+</body>
+</html>
