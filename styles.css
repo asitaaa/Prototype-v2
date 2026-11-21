@@ -533,6 +533,7 @@ a:hover .icon-arrow, button:hover .icon-arrow { transform: translateX(var(--size
 .fact-number {
   font-family: var(--heading-font);
   color: var(--primary-brand-2);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Sell section ---------- */

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2.1">
+  <link rel="stylesheet" href="styles.css?v=2.2">
 </head>
 <body>
 
@@ -80,15 +80,15 @@
   <section data-header="light" class="bg-light-1 boxed-l pad-tb-48" aria-label="Larkline in numbers">
     <ul class="facts-grid gap-32">
       <li class="flex-column gap-4">
-        <span class="fact-number title-3">9 years</span>
+        <span class="fact-number title-3" data-count>9 years</span>
         <span class="body-s detail-on-light">Selling homes from our office on Lincoln Avenue</span>
       </li>
       <li class="flex-column gap-4">
-        <span class="fact-number title-3">1 agent</span>
+        <span class="fact-number title-3" data-count>1 agent</span>
         <span class="body-s detail-on-light">Stays with you from the first call to the keys</span>
       </li>
       <li class="flex-column gap-4">
-        <span class="fact-number title-3">4 agents</span>
+        <span class="fact-number title-3" data-count>4 agents</span>
         <span class="body-s detail-on-light">Each covers the three cities they know best</span>
       </li>
       <li class="flex-column gap-4">
@@ -721,6 +721,81 @@ document.querySelectorAll('.nav-panel a').forEach(function (a) {
   });
   update();
 })();
+
+/* Count-up numbers: the final value stays in the HTML; this only animates it once. */
+(function (root) {
+  var els = Array.prototype.slice.call(root.querySelectorAll('[data-count]'));
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var re = /^([^\d-]*)(-?\d[\d,]*(?:\.\d+)?)([\s\S]*)$/;
+  var DURATION = 1600, STAGGER = 150;
+  var items = [];
+  els.forEach(function (el) {
+    var text = el.textContent.trim();
+    var m = text.match(re);
+    if (!m) return;
+    var num = m[2];
+    items.push({
+      el: el, text: text, html: el.innerHTML, prefix: m[1], suffix: m[3],
+      target: parseFloat(num.replace(/,/g, '')),
+      decimals: num.indexOf('.') < 0 ? 0 : num.split('.')[1].length,
+      grouped: num.indexOf(',') >= 0,
+      state: 'idle', value: null
+    });
+  });
+  function format(item, v) {
+    return v.toLocaleString('en-US', { minimumFractionDigits: item.decimals, maximumFractionDigits: item.decimals, useGrouping: item.grouped });
+  }
+  function prime(item) {
+    if (item.state !== 'idle') return;
+    item.state = 'primed';
+    item.el.setAttribute('aria-label', item.text);
+    var wrap = document.createElement('span');
+    wrap.setAttribute('aria-hidden', 'true');
+    item.value = document.createElement('span');
+    item.value.textContent = format(item, 0);
+    wrap.appendChild(document.createTextNode(item.prefix));
+    wrap.appendChild(item.value);
+    wrap.appendChild(document.createTextNode(item.suffix));
+    item.el.textContent = '';
+    item.el.appendChild(wrap);
+  }
+  function run(item, delay) {
+    prime(item);
+    if (item.state !== 'primed') return;
+    item.state = 'running';
+    setTimeout(function () {
+      var start = null;
+      function frame(now) {
+        if (start === null) start = now;
+        var t = Math.min((now - start) / DURATION, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        item.value.textContent = format(item, item.target * eased);
+        if (t < 1) { window.requestAnimationFrame(frame); return; }
+        item.el.innerHTML = item.html;
+        item.el.removeAttribute('aria-label');
+        item.state = 'done';
+      }
+      window.requestAnimationFrame(frame);
+    }, delay);
+  }
+  function find(el) { for (var i = 0; i < items.length; i++) if (items[i].el === el) return items[i]; return null; }
+  var primer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { var it = find(e.target); if (it) prime(it); primer.unobserve(e.target); }
+    });
+  }, { threshold: 0 });
+  var starter = new IntersectionObserver(function (entries) {
+    var batch = 0;
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var it = find(e.target);
+      if (it) run(it, batch++ * STAGGER);
+      starter.unobserve(e.target);
+    });
+  }, { threshold: 0.4 });
+  items.forEach(function (it) { primer.observe(it.el); starter.observe(it.el); });
+})(document);
 </script>
 </body>
 </html>
