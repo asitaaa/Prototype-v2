@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2.3">
+  <link rel="stylesheet" href="styles.css?v=2.4">
 </head>
 <body>
 
@@ -535,7 +535,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Huntington Beach, Fountain Valley and Westminster">
+    <section data-header="dark" data-enter="left" class="stack-panel bg-dark-1" aria-label="Huntington Beach, Fountain Valley and Westminster">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1510301727687-449bada59d5d?auto=format&fit=crop&w=2000&q=72" alt="Waves rolling in beside the Huntington Beach pier" loading="lazy"></div>
         <div class="stack-shade"></div>
@@ -556,7 +556,7 @@
       </div>
       <div class="stack-dim" aria-hidden="true"></div>
     </section>
-    <section data-header="dark" class="stack-panel bg-dark-1" aria-label="Thinking of selling?">
+    <section data-header="dark" data-enter="right" class="stack-panel bg-dark-1" aria-label="Thinking of selling?">
       <div class="stack-inner">
         <div class="stack-media"><img src="https://images.unsplash.com/photo-1616113364365-b6013f3dad25?auto=format&fit=crop&w=2000&q=72" alt="A quiet, curving residential street in the late-afternoon sun" loading="lazy"></div>
         <div class="stack-shade-top"></div>
@@ -658,25 +658,35 @@
   });
 })();
 
-/* Sticky overlap stack: passive scroll + requestAnimationFrame, no library */
-(function () {
-  var stack = document.querySelector('[data-stack]');
+/* Sticky overlap stack: passive scroll + requestAnimationFrame, no library.
+   Positions come from the layout (not getBoundingClientRect of the moving layers), so transforms never skew the maths. */
+(function (root) {
+  var stack = root.querySelector('[data-stack]');
   if (!stack) return;
   var layers = Array.prototype.slice.call(stack.children).filter(function (el) {
     return el.classList.contains('stack-panel') || el.classList.contains('stack-layer');
   });
   var ticking = false;
+  function clamp(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
   function update() {
     ticking = false;
     var vh = window.innerHeight;
-    for (var i = 0; i < layers.length - 1; i++) {
-      var panel = layers[i];
-      if (!panel.classList.contains('stack-panel')) continue;
-      var next = layers[i + 1];
-      var top = next.getBoundingClientRect().top;
-      var p = (vh - top) / vh;
-      p = p < 0 ? 0 : (p > 1 ? 1 : p);
-      panel.style.setProperty('--p', p.toFixed(3));
+    var y = stack.getBoundingClientRect().top;
+    var tops = [];
+    for (var i = 0; i < layers.length; i++) { tops.push(y); y += layers[i].offsetHeight; }
+    for (var j = 0; j < layers.length; j++) {
+      var el = layers[j];
+      var q = clamp((vh - tops[j]) / vh);           /* how far this layer has travelled in */
+      if (el.hasAttribute('data-enter')) {
+        /* side entrance: cancel the vertical travel so the layer slides in sideways */
+        var lift = q > 0 ? Math.max(tops[j], 0) : 0;
+        el.style.setProperty('--q', q.toFixed(3));
+        el.style.setProperty('--lift', lift.toFixed(1) + 'px');
+      }
+      if (j > 0) {
+        var prev = layers[j - 1];
+        if (prev.classList.contains('stack-panel')) prev.style.setProperty('--p', q.toFixed(3));
+      }
     }
   }
   function request() {
@@ -685,7 +695,7 @@
   window.addEventListener('scroll', request, { passive: true });
   window.addEventListener('resize', request, { passive: true });
   update();
-})();
+})(document);
 
 /* Close the mobile menu after choosing a link */
 document.querySelectorAll('.nav-panel a').forEach(function (a) {

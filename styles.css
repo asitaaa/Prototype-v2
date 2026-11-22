@@ -97,6 +97,7 @@
   --stack-scale-depth: 0.06;
   --stack-dim-max: 0.55;
   --stack-lift: var(--size-48);
+  --stack-enter-opacity: 0.1;
 }
 
 /* ==========================================================================
@@ -1017,11 +1018,21 @@ a:hover .media-frame img, .media-frame:hover img { transform: scale(1.04); }
   opacity: calc(var(--stack-dim-max) * var(--p));
   pointer-events: none;
 }
+/* Side entrances for the last two layers: --q (0 to 1) and --lift are set by the script */
+.stack-panel[data-enter] {
+  --q: 0;
+  --lift: var(--size-0);
+  opacity: calc(var(--stack-enter-opacity) + (1 - var(--stack-enter-opacity)) * var(--q));
+  will-change: transform, opacity;
+}
+.stack-panel[data-enter="left"] { transform: translate(calc((var(--q) - 1) * 100%), calc(var(--lift) * -1)); }
+.stack-panel[data-enter="right"] { transform: translate(calc((1 - var(--q)) * 100%), calc(var(--lift) * -1)); }
 @supports (height: 100svh) {
   :root { --stack-height: 100svh; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .stack-inner, .stack-content, .stack-content-top { transform: none !important; }
+  .stack-inner, .stack-content, .stack-content-top, .stack-panel[data-enter] { transform: none !important; }
+  .stack-panel[data-enter] { opacity: 1 !important; }
 }
 
 
