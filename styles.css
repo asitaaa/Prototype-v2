@@ -93,6 +93,7 @@
   --article-label-width: 10rem;
   --panel-width: 23rem;
   --stack-height: 100vh;
+  --plan-min-width: 34rem;
   --stack-scale-depth: 0.06;
   --stack-dim-max: 0.55;
   --stack-lift: var(--size-48);
@@ -918,6 +919,24 @@ a:hover .media-frame img, .media-frame:hover img { transform: scale(1.04); }
 .panel-buttons { display: grid; grid-template-columns: minmax(0, 1fr); }
 .status-line { display: inline-flex; align-items: center; }
 
+
+
+/* ---------- Floor plan (property page) ---------- */
+.plan-frame { overflow-x: auto; scrollbar-width: thin; }
+.plan-svg { display: block; width: 100%; min-width: var(--plan-min-width); height: auto; }
+.plan-room, .plan-room-hall, .plan-garage, .plan-outdoor, .plan-outline, .plan-door { vector-effect: non-scaling-stroke; }
+.plan-room { fill: var(--primary-light-1); stroke: var(--primary-dark-3); stroke-width: var(--border-width); }
+.plan-room-hall { fill: var(--primary-light-1); stroke: none; }
+.plan-garage { fill: var(--primary-light-3); stroke: var(--primary-dark-3); stroke-width: var(--border-width); }
+.plan-outdoor { fill: none; stroke: var(--primary-dark-3); stroke-width: var(--border-width); stroke-dasharray: var(--size-4) var(--size-4); }
+.plan-outline { fill: none; stroke: var(--primary-dark-1); stroke-width: var(--border-width-thick); }
+.plan-door { fill: var(--primary-brand-1); }
+.plan-label, .plan-label-s { font-family: var(--heading-font); fill: var(--primary-dark-1); }
+.plan-label { font-size: var(--body-size-m); }
+.plan-label-s { font-size: var(--body-size-s); }
+.plan-dim, .plan-label-muted { font-family: var(--body-font); font-size: var(--body-size-s); }
+.plan-dim { fill: var(--primary-dark-2); font-variant-numeric: tabular-nums; }
+.plan-label-muted { fill: var(--primary-dark-3); }
 
 /* ---------- Mobile contact bar (property page) ---------- */
 .contact-bar {
